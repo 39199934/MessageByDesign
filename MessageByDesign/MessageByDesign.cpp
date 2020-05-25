@@ -1,4 +1,5 @@
 #include "MessageByDesign.h"
+#include "CryptoMine.h"
 
 MessageByDesign::MessageByDesign(QWidget *parent)
 	: QMainWindow(parent)
@@ -17,7 +18,7 @@ MessageByDesign::MessageByDesign(QWidget *parent)
 	tb.view(ui.messagesShower);
 	auto hotb = tb.buildHead();
 	//hotb->view(ui.messagesShower);
-	CryptoBase64 cb64(&tb, this);
+	CryptoMine cb64(&tb, this);
 	cb64.view(ui.messagesShower);
 	auto cb64h = cb64.buildHead();
 	cb64h->view(ui.messagesShower);

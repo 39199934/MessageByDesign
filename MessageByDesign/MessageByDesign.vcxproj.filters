@@ -49,6 +49,9 @@
     <ClCompile Include="CryptoBodyProtocol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CryptoMine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MessageByDesign.h">
@@ -70,6 +73,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CryptoBodyProtocol.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CryptoMine.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

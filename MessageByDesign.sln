@@ -7,19 +7,32 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageByDesign", "MessageB
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2351109E-956F-4034-929A-B8A931E13949}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2351109E-956F-4034-929A-B8A931E13949}.Debug|Win32.Build.0 = Debug|Win32
 		{2351109E-956F-4034-929A-B8A931E13949}.Debug|x64.ActiveCfg = Debug|x64
 		{2351109E-956F-4034-929A-B8A931E13949}.Debug|x64.Build.0 = Debug|x64
+		{2351109E-956F-4034-929A-B8A931E13949}.Debug|x86.ActiveCfg = Debug|Win32
+		{2351109E-956F-4034-929A-B8A931E13949}.Debug|x86.Build.0 = Debug|Win32
+		{2351109E-956F-4034-929A-B8A931E13949}.Release|Win32.ActiveCfg = Release|Win32
+		{2351109E-956F-4034-929A-B8A931E13949}.Release|Win32.Build.0 = Release|Win32
 		{2351109E-956F-4034-929A-B8A931E13949}.Release|x64.ActiveCfg = Release|x64
 		{2351109E-956F-4034-929A-B8A931E13949}.Release|x64.Build.0 = Release|x64
+		{2351109E-956F-4034-929A-B8A931E13949}.Release|x86.ActiveCfg = Release|Win32
+		{2351109E-956F-4034-929A-B8A931E13949}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		Qt5Version = msvc2017
 		SolutionGuid = {97A12716-29A0-4D6A-A868-BB2BCD36E768}
 	EndGlobalSection
 EndGlobal
