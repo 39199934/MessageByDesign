@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IOProtocol" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACACACAAAARAIAAAAAAAAAAA=</HashCode>
+      <FileName>IOProtocol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IOStd" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOStd.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IOProtocolDecoratorCrypto" Collapsed="true">
+    <Position X="5.25" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAACRgAAAAAACAAAAA=</HashCode>
+      <FileName>IOProtocolDecoratorCrypto.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyCryptoProtocol" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAJAAAABAAAAAAAAAAAAAAIgAAAAA=</HashCode>
+      <FileName>MyCryptoProtocol.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MySimpleCrypto" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAIAgEABAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>MySimpleCrypto.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IOProtocolDecorator" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAiAAAARAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOProtocolDecorator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TestDecorator" Collapsed="true">
+    <Position X="10.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAAAAUAAAAAAAQgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TestDecorator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IOWidget" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAgAAAAAAACAAAATAAAAAAAAAAAAA=</HashCode>
+      <FileName>IOWidget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
