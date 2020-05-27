@@ -112,6 +112,9 @@
     <ClCompile Include="HeadOfMessage.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MessageByDesign.cpp" />
+    <ClCompile Include="MyCryptoBuilder.cpp" />
+    <ClCompile Include="MyCryptoProtocol.cpp" />
+    <ClCompile Include="MySimpleCrypto.cpp" />
     <ClCompile Include="TextBody.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CryptoMine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyCryptoBuilder.h" />
+    <ClInclude Include="MyCryptoProtocol.h" />
+    <ClInclude Include="MySimpleCrypto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

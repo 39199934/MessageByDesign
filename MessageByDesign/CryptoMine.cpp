@@ -36,7 +36,7 @@ void CryptoMine::setBagByteArray(const QByteArray& bytes)
 		qDebug() << p;
 		auto nbytes = QByteArray(p);
 		BagProtocol::setBagByteArray(nbytes);
-		delete p;
+		delete[] p;
 		
 	}
 
