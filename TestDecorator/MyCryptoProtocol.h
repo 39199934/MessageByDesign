@@ -24,9 +24,13 @@ public:
 	virtual unsigned char* bitDecoderMethod(unsigned char* p) { return p; };
 	
 	
-	QByteArray bitEncoderTemple(QByteArray bytes);
+	virtual QByteArray bitEncoderTemple(QByteArray bytes);
 	
-	QByteArray bitDecoderTemple(QByteArray bytes);
+	virtual QByteArray bitDecoderTemple(QByteArray bytes);
+
+	//QByteArray bitEncoderTemple(QByteArray bytes£¬int len);
+
+	QByteArray bitDecoderTemple(QByteArray bytes,int len);
 
 	
 	
