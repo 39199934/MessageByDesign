@@ -9,6 +9,44 @@ MyCryptoProtocol::~MyCryptoProtocol()
 {
 	
 }
+QByteArray MyCryptoProtocol::bitEncoderTemple(QByteArray bytes)
+{
+	auto newBytes = bytes;
+	//createBytesData(newBytes);
+	auto data = bytes.data();
+	auto len = strlen(data);
+	unsigned char* mp = new unsigned char[strlen(data)]();
+	memcpy_s(mp, len, data, len);
+	mp[len] = '\0';
+	unsigned char* pmp = mp;
+
+	this->bitEncoderMethod(mp);
+
+	
+	mp[len] = '\0';
+	//qDebug() << "cryptoed:"<<bytesData;
+	newBytes = QByteArray::fromRawData((char*)pmp, len);
+	return newBytes;
+}
+QByteArray MyCryptoProtocol::bitDecoderTemple(QByteArray bytes)
+{
+	auto newBytes = bytes;
+	//createBytesData(newBytes);
+	auto data = bytes.data();
+	auto len = strlen(data);
+	unsigned char* mp = new unsigned char[strlen(data)]();
+	memcpy_s(mp, len, data, len);
+	mp[len] = '\0';
+	unsigned char* pmp = mp;
+
+	this->bitDecoderMethod(mp);
+
+
+	mp[len] = '\0';
+	//qDebug() << "cryptoed:"<<bytesData;
+	newBytes = QByteArray::fromRawData((char*)pmp, len);
+	return newBytes;
+}
 /*
 QByteArray MyCryptoProtocol::encoder(MyCryptoType type, QByteArray uncrypto_bytes)
 {

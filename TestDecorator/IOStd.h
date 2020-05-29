@@ -7,7 +7,7 @@ class IOStd :
 	
 {
 public:
-	virtual QString input() override;
+	virtual QByteArray input() override;
 	virtual void output() override;
 	virtual void outputOrigin();
 };

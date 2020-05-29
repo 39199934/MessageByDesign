@@ -11,10 +11,10 @@ IOProtocolDecorator::~IOProtocolDecorator()
 	//qDebug() << "in ~IOProtocolDecorator";
 }
 
-QString IOProtocolDecorator::input()
+QByteArray IOProtocolDecorator::input()
 {
 	return widget->input();
-	return QString();
+	
 }
 
 void IOProtocolDecorator::output()

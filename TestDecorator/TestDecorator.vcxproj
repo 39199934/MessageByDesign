@@ -86,8 +86,13 @@
     <ClCompile Include="IOProtocolDecoratorCrypto.cpp" />
     <ClCompile Include="IOProtocolDecorator.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyChangePositionCrypto.cpp" />
     <ClCompile Include="MyCryptoProtocol.cpp" />
+    <ClCompile Include="MyMoveCrypto.cpp" />
+    <ClCompile Include="MyMoveLowerCrypto.cpp" />
+    <ClCompile Include="MyMoveTextCrypto.cpp" />
     <ClCompile Include="MySimpleCrypto.cpp" />
+    <ClCompile Include="MyXORCrypto.cpp" />
     <ClCompile Include="TestDecorator.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -104,9 +109,14 @@
     <ClInclude Include="IOProtocol.h" />
     <ClInclude Include="IOStd.h" />
     <ClInclude Include="IOProtocolDecoratorCrypto.h" />
+    <ClInclude Include="MyChangePositionCrypto.h" />
     <ClInclude Include="MyCryptoProtocol.h" />
+    <ClInclude Include="MyMoveCrypto.h" />
+    <ClInclude Include="MyMoveLowerCrypto.h" />
+    <ClInclude Include="MyMoveTextCrypto.h" />
     <ClInclude Include="MySimpleCrypto.h" />
     <ClInclude Include="IOProtocolDecorator.h" />
+    <ClInclude Include="MyXORCrypto.h" />
     <QtMoc Include="IOWidget.h" />
   </ItemGroup>
   <ItemGroup>

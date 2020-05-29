@@ -1,7 +1,8 @@
 #include "IOProtocolDecoratorCrypto.h"
 
-IOProtocolDecoratorCrypto::IOProtocolDecoratorCrypto(IOProtocol* widget)
+IOProtocolDecoratorCrypto::IOProtocolDecoratorCrypto(IOProtocol* widget, MyCryptoProtocol* crypto_class )
 	: IOProtocolDecorator(widget)
+	,crypto(crypto_class)
 {
 	//widget->setWindowTitle("crypto widget");
 	
@@ -16,13 +17,13 @@ IOProtocolDecoratorCrypto::~IOProtocolDecoratorCrypto()
 	}*/
 }
 
-QString IOProtocolDecoratorCrypto::input()
+QByteArray IOProtocolDecoratorCrypto::input()
 {
 	IOProtocolDecorator::input();
 	text = widget->getText();
 	//auto str = widget->input();
-	auto by = crypto.doEncoder(text.toLocal8Bit());
-	text = QString::fromLocal8Bit(by);
+	text = crypto->doEncoder(text);
+	//text = QString::fromLocal8Bit(by);
 	//widget->setText(text);
 
 	return text;
@@ -32,10 +33,10 @@ void IOProtocolDecoratorCrypto::output()
 {
 	
 	//auto str = widget->getText();
-	auto by = text.toLocal8Bit();
-	auto deby = crypto.doDecoder(by);
-	auto ntext = QString::fromLocal8Bit(deby);
-	widget->setText(ntext);
+	auto by = text;
+	auto deby = crypto->doDecoder(by);
+	//auto ntext = QString::fromLocal8Bit(deby);
+	widget->setText(deby);
 	IOProtocolDecorator::output();
 	
 	//widget->setText(text);
@@ -44,8 +45,8 @@ void IOProtocolDecoratorCrypto::output()
 void IOProtocolDecoratorCrypto::outputOrigin()
 {
 	QString head;
-	head = QString::fromLocal8Bit("加密方法：") + crypto.description() + QString::fromLocal8Bit("，密文：");
-	widget->setText(head+text);
+	head = QString::fromLocal8Bit("加密方法：") + crypto->description() + QString::fromLocal8Bit("，密文：");
+	widget->setText(head.toLocal8Bit()+text);
 	IOProtocolDecorator::outputOrigin();
 	//auto str = widget->getText();
 	//widget->ui.cOriginOutput->setText(str);

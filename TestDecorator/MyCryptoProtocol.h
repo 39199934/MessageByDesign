@@ -12,9 +12,24 @@ public:
 	
 
 public:
-	virtual QByteArray doEncoder( QByteArray uncrypto_bytes) =0;
-	virtual  QByteArray doDecoder( QByteArray cryptoed_bytes) =0;
+	virtual QByteArray doEncoder(QByteArray uncrypto_bytes) {
+		return bitEncoderTemple(uncrypto_bytes);
+	};
+	virtual  QByteArray doDecoder(QByteArray cryptoed_bytes) {
+		return bitDecoderTemple(cryptoed_bytes);
+	};
 	virtual QString description()=0;
+
+	virtual unsigned char* bitEncoderMethod(unsigned char* p) { return p; };
+	virtual unsigned char* bitDecoderMethod(unsigned char* p) { return p; };
+	
+	
+	QByteArray bitEncoderTemple(QByteArray bytes);
+	
+	QByteArray bitDecoderTemple(QByteArray bytes);
+
+	
+	
 protected:
 	//unsigned char* bytesData;
 	//void createBytesData(QByteArray bytes);

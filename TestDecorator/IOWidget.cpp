@@ -14,21 +14,21 @@ IOWidget::~IOWidget()
 {
 }
 
-QString IOWidget::input()
+QByteArray IOWidget::input()
 {
-	text = ui.cInput->text();
+	text = ui.cInput->text().toLocal8Bit();
 	ui.cInput->clear();
 	return text;
 }
 
 void IOWidget::output()
 {
-	ui.cOutput->setText(text);
+	ui.cOutput->setText(QString::fromLocal8Bit(text));
 }
 
 void IOWidget::outputOrigin()
 {
-	ui.cOriginOutput->setText(text);
+	ui.cOriginOutput->setText(QString::fromLocal8Bit(text));
 }
 
 void IOWidget::onClickedBtn()
