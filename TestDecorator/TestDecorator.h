@@ -6,6 +6,7 @@
 #include "IOWidget.h"
 #include "IOProtocolDecorator.h"
 #include "IOProtocolDecoratorCrypto.h"
+#include <QComboBox>
 
 class TestDecorator : public QMainWindow
 {
@@ -21,9 +22,11 @@ public slots:
 	void onClickedOutputOrigin();
 	void onClickedStdIO();
 	void onClickedWidgetIO();
+	void onChangedComboBox(int index);
 
 private:
 	Ui::TestDecoratorClass ui;
 	IOProtocol* io;
 	IOProtocol* wid;
+	IOProtocol* buildIOProtocol();
 };

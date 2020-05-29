@@ -6,13 +6,16 @@ TestDecorator::TestDecorator(QWidget *parent)
 	ui.setupUi(this);
 	//wid = new IOWidget(nullptr);
 	wid = new IOStd();
-	io = new IOProtocolDecoratorCrypto(wid);
+	io = new IOProtocolDecoratorCrypto(wid,new MySimpleCrypto());
 	//connect()
 	connect(ui.cInput, &QPushButton::clicked, this, &TestDecorator::onClickedInput);
 	connect(ui.cOutput, &QPushButton::clicked, this, &TestDecorator::onClickedOutput);
 	connect(ui.cOutputOrigin, &QPushButton::clicked, this, &TestDecorator::onClickedOutputOrigin);
 	connect(ui.cStd, &QPushButton::clicked, this, &TestDecorator::onClickedStdIO);
 	connect(ui.cWidget, &QPushButton::clicked, this, &TestDecorator::onClickedWidgetIO);
+	connect(ui.cComboBox,SIGNAL(currentIndexChanged(int)), this, SLOT(onChangedComboBox(int)));
+	ui.cComboBox->setEditable(false);
+	ui.cKey->setEnabled(false);
 }
 
 void TestDecorator::onClickedInput()
@@ -42,16 +45,13 @@ void TestDecorator::onClickedOutputOrigin()
 
 void TestDecorator::onClickedStdIO()
 {
-	if (io != nullptr) {
-		delete io;
-		io = nullptr;
-	}
+	
 	if (wid != nullptr) {
 		delete wid;
 		wid = nullptr;
 	}
 	wid = new IOStd();
-	io = new IOProtocolDecoratorCrypto(wid);
+	buildIOProtocol();
 }
 
 void TestDecorator::onClickedWidgetIO()
@@ -66,5 +66,47 @@ void TestDecorator::onClickedWidgetIO()
 	}
 	
 	wid = new IOWidget();
-	io = new IOProtocolDecoratorCrypto(wid);
+	buildIOProtocol();
+}
+
+void TestDecorator::onChangedComboBox(int index)
+{
+	if (index == 4) {
+		ui.cKey->setEnabled(true);
+	}
+	else {
+		ui.cKey->setEnabled(false);
+	}
+}
+
+IOProtocol* TestDecorator::buildIOProtocol()
+{
+	if (io != nullptr) {
+		delete io;
+		io = nullptr;
+	}
+	QByteArray key = "lodestar";
+	switch (ui.cComboBox->currentIndex())
+	{
+	case 0:
+		io = new IOProtocolDecoratorCrypto(wid,new MySimpleCrypto());
+		break;
+	case 1:
+		io = new IOProtocolDecoratorCrypto(wid, new MyMoveCrypto());
+		break;
+	case 2:
+		io = new IOProtocolDecoratorCrypto(wid, new MyMoveLowerCrypto());
+		break;
+	case 3:
+		io = new IOProtocolDecoratorCrypto(wid, new MyMoveTextCrypto());
+		break;
+	case 4:
+		key = ui.cKey->text().toLocal8Bit();
+		io = new IOProtocolDecoratorCrypto(wid, new MyXORCrypto(key));
+		break;
+	default:
+		io = new IOProtocolDecoratorCrypto(wid, new MySimpleCrypto());
+		break;
+	}
+	return io;
 }
