@@ -14,6 +14,16 @@ int main(int argc, char *argv[])
 
 	//io->input();
 	//io->output();
+	qDebug() << sizeof(int);
+	qDebug() << sizeof(char);
+	char* str = new char[sizeof(int)]();
+	int aa = 25;
+	memcpy_s(str, sizeof(int), &aa, sizeof(int));
+	int b = 0;
+	memcpy_s(&b, sizeof(int), str, sizeof(int));
+	qDebug() << "b = " << b;
+
+
 	TestDecorator w;
 	w.show();
 	return a.exec();

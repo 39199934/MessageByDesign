@@ -30,7 +30,7 @@ public:
 
 	//QByteArray bitEncoderTemple(QByteArray bytes£¬int len);
 
-	QByteArray bitDecoderTemple(QByteArray bytes,int len);
+	
 
 	
 	
