@@ -101,6 +101,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IOFile.cpp" />
     <ClCompile Include="IOProtocol.cpp" />
     <ClCompile Include="IOStd.cpp" />
     <ClCompile Include="IOWidget.cpp" />
@@ -127,6 +128,7 @@
     <QtRcc Include="TestDecorator.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IOFile.h" />
     <ClInclude Include="IOProtocol.h" />
     <ClInclude Include="IOStd.h" />
     <ClInclude Include="IOProtocolDecoratorCrypto.h" />

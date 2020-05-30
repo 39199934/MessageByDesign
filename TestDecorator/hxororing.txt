@@ -1,0 +1,1 @@
+加密方法：XORCrypto，密文：helloworld

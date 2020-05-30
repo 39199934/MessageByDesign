@@ -4,6 +4,7 @@
 #include "IOWidget.h"
 #include "IOProtocolDecorator.h"
 #include "IOProtocolDecoratorCrypto.h"
+#include "IOFile.h"
 
 int main(int argc, char *argv[])
 {
@@ -22,8 +23,7 @@ int main(int argc, char *argv[])
 	int b = 0;
 	memcpy_s(&b, sizeof(int), str, sizeof(int));
 	qDebug() << "b = " << b;
-
-
+	
 	TestDecorator w;
 	w.show();
 	return a.exec();

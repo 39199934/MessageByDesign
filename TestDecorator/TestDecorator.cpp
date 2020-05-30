@@ -20,6 +20,7 @@ TestDecorator::TestDecorator(QWidget *parent)
 
 void TestDecorator::onClickedInput()
 {
+	buildIOProtocol();
 	io->input();
 }
 
@@ -45,17 +46,20 @@ void TestDecorator::onClickedOutputOrigin()
 
 void TestDecorator::onClickedStdIO()
 {
-	
+	/*
 	if (wid != nullptr) {
 		delete wid;
 		wid = nullptr;
 	}
 	wid = new IOStd();
 	buildIOProtocol();
-}
+	*/
+	}
 
 void TestDecorator::onClickedWidgetIO()
+
 {
+	/*
 	if (io != nullptr) {
 		delete io;
 		io = nullptr;
@@ -66,7 +70,9 @@ void TestDecorator::onClickedWidgetIO()
 	}
 	
 	wid = new IOWidget();
+	
 	buildIOProtocol();
+	*/
 }
 
 void TestDecorator::onChangedComboBox(int index)
@@ -85,7 +91,29 @@ IOProtocol* TestDecorator::buildIOProtocol()
 		delete io;
 		io = nullptr;
 	}
+	if (wid != nullptr) {
+		delete wid;
+		wid = nullptr;
+	}
 	QByteArray key = "lodestar";
+	switch (ui.cIOType->currentIndex())
+	{
+	case 0:
+		wid = new IOStd();// (wid, new MySimpleCrypto());
+		break;
+	case 1:
+		wid = new IOWidget(nullptr);// (wid, new MyMoveCrypto());
+		break;
+	case 2:
+		wid = new IOFile();// (wid, new MyMoveLowerCrypto());
+		break;
+	case 3:
+		wid = new IOStd();
+		break;
+	default:
+		wid = new IOStd();
+		break;
+	}
 	switch (ui.cComboBox->currentIndex())
 	{
 	case 0:
@@ -102,7 +130,12 @@ IOProtocol* TestDecorator::buildIOProtocol()
 		break;
 	case 4:
 		key = ui.cKey->text().toLocal8Bit();
-		io = new IOProtocolDecoratorCrypto(wid, new MyXORCrypto(key));
+		if (key.isEmpty()) {
+			io = new IOProtocolDecoratorCrypto(wid, new MyXORCrypto());
+		}
+		else {
+			io = new IOProtocolDecoratorCrypto(wid, new MyXORCrypto(key));
+		}
 		break;
 	default:
 		io = new IOProtocolDecoratorCrypto(wid, new MySimpleCrypto());

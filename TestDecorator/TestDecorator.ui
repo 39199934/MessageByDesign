@@ -14,129 +14,118 @@
    <string>TestDecorator</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="cInput">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>40</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>input</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cOutput">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>90</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>output</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cOutputOrigin">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>130</y>
-      <width>141</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>outputOrigin</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cStd">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>120</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>控制台</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="cWidget">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>160</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>窗口</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="cComboBox">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>70</y>
-      <width>171</width>
-      <height>22</height>
-     </rect>
-    </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <property name="text">
-      <string>simple</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QComboBox" name="cIOType">
+          <item>
+           <property name="text">
+            <string>控制台输入输出</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>窗口输入输出</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>文件输入输出</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>数据流输入输出</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cComboBox">
+          <item>
+           <property name="text">
+            <string>simple</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>movebit</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>moveLower</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>moveText</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>xor</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>密码：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="cKey"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cStd">
+        <property name="text">
+         <string>控制台</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cWidget">
+        <property name="text">
+         <string>窗口</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <property name="text">
-      <string>movebit</string>
-     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QPushButton" name="cInput">
+        <property name="text">
+         <string>input</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cOutput">
+        <property name="text">
+         <string>output</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cOutputOrigin">
+        <property name="text">
+         <string>outputOrigin</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
-    <item>
-     <property name="text">
-      <string>moveLower</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>moveText</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>xor</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLineEdit" name="cKey">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>30</y>
-      <width>113</width>
-      <height>20</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>30</y>
-      <width>54</width>
-      <height>12</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>密码：</string>
-    </property>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -144,7 +133,7 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

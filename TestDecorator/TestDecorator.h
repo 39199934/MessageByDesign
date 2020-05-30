@@ -7,6 +7,7 @@
 #include "IOProtocolDecorator.h"
 #include "IOProtocolDecoratorCrypto.h"
 #include <QComboBox>
+#include "IOFile.h"
 
 class TestDecorator : public QMainWindow
 {
