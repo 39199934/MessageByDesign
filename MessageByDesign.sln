@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MessageByDesign", "MessageB
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestDecorator", "TestDecorator\TestDecorator.vcxproj", "{768CD348-D1E5-489A-87C8-039AA44FCD66}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestServer", "TestServer\TestServer.vcxproj", "{ACE0E84F-6072-482B-AE41-F1FC37E14205}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -39,12 +41,20 @@ Global
 		{768CD348-D1E5-489A-87C8-039AA44FCD66}.Release|x64.ActiveCfg = Release|Win32
 		{768CD348-D1E5-489A-87C8-039AA44FCD66}.Release|x86.ActiveCfg = Release|Win32
 		{768CD348-D1E5-489A-87C8-039AA44FCD66}.Release|x86.Build.0 = Release|Win32
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Debug|Win32.ActiveCfg = Debug|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Debug|x64.ActiveCfg = Debug|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Debug|x64.Build.0 = Debug|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Debug|x86.ActiveCfg = Debug|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Release|Win32.ActiveCfg = Release|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Release|x64.ActiveCfg = Release|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Release|x64.Build.0 = Release|x64
+		{ACE0E84F-6072-482B-AE41-F1FC37E14205}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = 5.10_msvc2017_64
 		SolutionGuid = {97A12716-29A0-4D6A-A868-BB2BCD36E768}
+		Qt5Version = 5.10_msvc2017_64
 	EndGlobalSection
 EndGlobal
