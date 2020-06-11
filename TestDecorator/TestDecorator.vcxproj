@@ -56,19 +56,19 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <QtInstall>5.10_msvc2017_64</QtInstall>
+    <QtInstall>msvc2017</QtInstall>
     <QtModules>core;gui;network;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <QtInstall>5.10_msvc2017_64</QtInstall>
+    <QtInstall>msvc2017</QtInstall>
     <QtModules>core;gui;network;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>5.10_msvc2017_64</QtInstall>
+    <QtInstall>msvc2017</QtInstall>
     <QtModules>core;datavisualization;network;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>5.10_msvc2017_64</QtInstall>
+    <QtInstall>msvc2017</QtInstall>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />

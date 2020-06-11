@@ -5,38 +5,24 @@
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|x64">
-      <Configuration>Debug</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|x64">
-      <Configuration>Release</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2351109E-956F-4034-929A-B8A931E13949}</ProjectGuid>
+    <ProjectGuid>{BB2657D6-AD60-4B68-8A9C-BD18E975D0D6}</ProjectGuid>
     <Keyword>QtVS_v302</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <PlatformToolset>v142</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -45,35 +31,28 @@
   </Target>
   <ImportGroup Label="ExtensionSettings" />
   <ImportGroup Label="Shared" />
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
-  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QtInstall>msvc2017</QtInstall>
-    <QtModules>core;datavisualization;gui;multimedia;multimediawidgets;sql;websockets;widgets</QtModules>
-  </PropertyGroup>
-  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QtInstall>msvc2017</QtInstall>
-    <QtModules>core;datavisualization;gui;multimedia;multimediawidgets;sql;websockets;widgets</QtModules>
-  </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <QtModules>core;datavisualization;multimedia;multimediawidgets;sql;webchannel;webengine;widgets;winextras</QtModules>
     <QtInstall>msvc2017</QtInstall>
+    <QtModules>core;gui;multimedia;multimediawidgets;network;networkauth;sql;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <QtInstall>msvc2017</QtInstall>
+    <QtModules>core;gui;multimedia;multimediawidgets;network;networkauth;sql;widgets</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
   </ImportGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
@@ -87,7 +66,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat />
@@ -100,57 +79,35 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ClCompile />
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BagProtocol.cpp" />
-    <ClCompile Include="BodyOfMessageProtocol.cpp" />
-    <ClCompile Include="CryptoBase64.cpp" />
-    <ClCompile Include="CryptoBodyProtocol.cpp" />
-    <ClCompile Include="CryptoMine.cpp" />
-    <ClCompile Include="HeadOfMessage.cpp" />
+    <ClCompile Include="ClientIMPOnStd.cpp" />
+    <ClCompile Include="ClientIMPProtocol.cpp" />
+    <ClCompile Include="ClientIMPOnWidget.cpp" />
+    <ClCompile Include="ClientProtocol.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MessageByDesign.cpp" />
-    <ClCompile Include="MyCryptoBuilder.cpp" />
-    <ClCompile Include="MyCryptoProtocol.cpp" />
-    <ClCompile Include="MySimpleCrypto.cpp" />
-    <ClCompile Include="TextBody.cpp" />
+    <ClCompile Include="NotificationProtocol.cpp" />
+    <ClCompile Include="TestTcpSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MessageByDesign.h" />
+    <QtMoc Include="TestTcpSocket.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="MessageByDesign.ui" />
+    <QtUic Include="ClientIMPOnWidget.ui" />
+    <QtUic Include="TestTcpSocket.ui" />
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="MessageByDesign.qrc" />
+    <QtRcc Include="TestTcpSocket.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="BagProtocol.h" />
+    <QtMoc Include="ClientProtocol.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="HeadOfMessage.h" />
+    <QtMoc Include="ClientIMPOnWidget.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="BodyOfMessageProtocol.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="TextBody.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="CryptoBase64.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="CryptoBodyProtocol.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <QtMoc Include="CryptoMine.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="MyCryptoBuilder.h" />
-    <ClInclude Include="MyCryptoProtocol.h" />
-    <ClInclude Include="MySimpleCrypto.h" />
+    <ClInclude Include="ClientIMPOnStd.h" />
+    <ClInclude Include="ClientIMPProtocol.h" />
+    <ClInclude Include="NotificationProtocol.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

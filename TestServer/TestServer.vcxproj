@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
@@ -14,7 +22,7 @@
     <ProjectGuid>{ACE0E84F-6072-482B-AE41-F1FC37E14205}</ProjectGuid>
     <Keyword>QtVS_v302</Keyword>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
@@ -24,6 +32,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
@@ -42,14 +56,21 @@
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
-    <QtInstall>5.10_msvc2017_64</QtInstall>
+    <QtInstall>msvc2017</QtInstall>
     <QtModules>core;sql;network;gui;multimedia;widgets;multimediawidgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>5.10_msvc2017_64</QtInstall>
+    <QtInstall>msvc2017</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <QtInstall>msvc2017</QtInstall>
+    <QtModules>core;network;widgets;winextras</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <QtInstall>msvc2017</QtInstall>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -82,13 +103,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <QtRcc Include="TestServer.qrc" />
-    <QtUic Include="MyClient.ui" />
+    <QtUic Include="SocketIMPWidget.ui" />
     <QtUic Include="TestServer.ui" />
     <QtMoc Include="TestServer.h" />
     <ClCompile Include="ClientProtocol.cpp" />
-    <ClCompile Include="MyClient.cpp" />
+    <ClCompile Include="MyServer.cpp" />
+    <ClCompile Include="SocketIMPWidget.cpp" />
     <ClCompile Include="MySocket.cpp" />
     <ClCompile Include="SocketIMPProtocol.cpp" />
+    <ClCompile Include="SocketIMPStd.cpp" />
     <ClCompile Include="TestServer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -96,9 +119,11 @@
     <QtMoc Include="ClientProtocol.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="MyClient.h" />
+    <QtMoc Include="SocketIMPWidget.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="MyServer.h" />
+    <ClInclude Include="SocketIMPStd.h" />
     <QtMoc Include="MySocket.h" />
     <ClInclude Include="SocketIMPProtocol.h" />
   </ItemGroup>

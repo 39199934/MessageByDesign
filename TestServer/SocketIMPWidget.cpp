@@ -1,33 +1,38 @@
-#include "MyClient.h"
+#include "SocketIMPWidget.h"
 
-MyClient::MyClient(QWidget *parent)
+SocketIMPWidget::SocketIMPWidget(QWidget *parent)
 	: QWidget(parent),
-	SocketIMPProtocol()
+	SocketIMPProtocol(),
+	addressAndPortIsShow(true)
 {
 	ui.setupUi(this);
+	
 	//setWindowsItem(ui.cMessageHistory, ui.cMessageEdit, ui.cBtnSend);
-	connect(ui.cBtnLink, &QPushButton::clicked, this, &MyClient::onClickedLink);
+	//connect(ui.cBtnLink, &QPushButton::clicked, this, &SocketIMPWidget::onClickedLink);
+	ui.cAddressEdit->setText("127.0.0.1");
+	ui.cPortEdit->setText("5666");
+	hideAddressAndPort();
 }
 
-MyClient::~MyClient()
+SocketIMPWidget::~SocketIMPWidget()
 {
 }
 
-QByteArray MyClient::getNewMessage()
+QByteArray SocketIMPWidget::getNewMessage()
 {
 	auto result = ui.cMessageEdit->text().toLocal8Bit();
 	ui.cMessageEdit->clear();
 	return result;
 }
 
-void MyClient::viewMessage(const QByteArray& new_message)
+void SocketIMPWidget::viewMessage(const QByteArray& new_message)
 {
 	auto vmsg = QString::fromLocal8Bit(new_message);
 	ui.cMessageHistory->append("new message:");
 	ui.cMessageHistory->append(vmsg);
 }
 
-void MyClient::viewSocketState(QAbstractSocket::SocketState state)
+void SocketIMPWidget::viewSocketState(QAbstractSocket::SocketState state)
 {
 	switch (state)
 	{
@@ -57,22 +62,38 @@ void MyClient::viewSocketState(QAbstractSocket::SocketState state)
 	}
 }
 
-void MyClient::clearMessageHistory()
+void SocketIMPWidget::clearMessageHistory()
 {
 	ui.cMessageHistory->clear();
 }
 
-QString MyClient::getHostAddress()
+void SocketIMPWidget::hideAddressAndPort()
 {
-	return "127.0.0.1";
+	addressAndPortIsShow = false;
+	ui.cAddressEdit->setHidden(true);
+	ui.cPortEdit->setHidden(true);
 }
 
-qint16 MyClient::getHostPort()
+void SocketIMPWidget::showAddressAndPort()
 {
-	return 5666;
+	addressAndPortIsShow = true;
+	ui.cAddressEdit->setHidden(false);
+	ui.cPortEdit->setHidden(false);
 }
 
-void MyClient::onClickedLink()
+QString SocketIMPWidget::getHostAddress()
+{
+	return ui.cAddressEdit->text();
+}
+
+qint16 SocketIMPWidget::getHostPort()
+{
+	QString p = ui.cPortEdit->text();
+	return p.toInt();
+	//return 5666;
+}
+
+void SocketIMPWidget::onClickedLink()
 {
 	//connectToHost("127.0.0.1", 5666);
 }

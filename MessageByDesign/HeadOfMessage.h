@@ -19,3 +19,4 @@ public:
 	int getBodySize();
 	virtual void view(QTextBrowser* browser) override;
 };
+  

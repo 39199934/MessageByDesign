@@ -4,7 +4,7 @@
 #include <QtNetwork/QAbstractSocket>
 class SocketIMPProtocol
 {
-protected:
+public:
 	virtual QByteArray getNewMessage() =0;
 	virtual void viewMessage(const QByteArray& new_message) = 0;
 	virtual void viewSocketState(QAbstractSocket::SocketState state) = 0;

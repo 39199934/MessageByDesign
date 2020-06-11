@@ -1,11 +1,16 @@
 #include "TestServer.h"
 #include <QtWidgets/QApplication>
-#include "MyClient.h"
-
+#include "SocketIMPWidget.h"
+#include "SocketIMPStd.h"
+#include "MySocket.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MyClient w;
+    TestServer w;
+    //MySocket socket(new SocketIMPStd());
+    //socket.linkToHost();
+    //socket.sendMessage();
+    
     w.show();
     return a.exec();
 }
