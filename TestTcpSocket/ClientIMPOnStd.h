@@ -13,5 +13,8 @@ class ClientIMPOnStd :
 
 	// 通过 ClientIMPProtocol 继承
 	virtual void showWidget(const QString& title = QString::fromLocal8Bit("客户端窗口")) override;
+
+	// 通过 ClientIMPProtocol 继承
+	virtual void setWidgetTitle(const QString& title = QString::fromLocal8Bit("客户端窗口")) override;
 };
 

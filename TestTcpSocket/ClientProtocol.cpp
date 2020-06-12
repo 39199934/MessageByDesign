@@ -1,23 +1,45 @@
 #include "ClientProtocol.h"
 
-ClientProtocol::ClientProtocol(ClientIMPProtocol* new_imp, QObject *parent)
-	: QTcpSocket(parent),
-	imp(new_imp)
+ClientProtocol::ClientProtocol(QWidget* parent_widget)
+	: QTcpSocket(parent_widget),
+	parentWidget(parent_widget)
 {
 	connect(this, &QTcpSocket::readyRead, this, &ClientProtocol::slotReadyRead);
 	connect(this, &QTcpSocket::stateChanged, this, &ClientProtocol::slotStateChanged);
+	wimp = new ClientIMPOnWidget();
+	auto layout = parentWidget->layout();// new QVBoxLayout(parentWidget);//铺满布局
+	
+	
+	wimp->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);//铺满布局
+
+	layout->addWidget(wimp);
+
+	parentWidget->setLayout(layout);// ->horizontalLayoutChoose->addWidget(widget);
+	imp = wimp;
+	imp->setNotification(this);
 }
 
-ClientProtocol::ClientProtocol(qintptr socket_des, ClientIMPProtocol* new_imp, QObject* parent):
-	ClientProtocol(new_imp,parent)
+ClientProtocol::ClientProtocol(qintptr socket_des, QWidget* parent_widget):
+	ClientProtocol(parent_widget)
 {
 	setSocketDescriptor(socket_des);
 }
 
 ClientProtocol::~ClientProtocol()
 {
-	if (imp != nullptr) {
-		delete imp;
+	if (parentWidget != nullptr) {
+		auto layout = parentWidget->layout();
+		layout->removeWidget(wimp);
+		//delete wimp;
+		wimp = nullptr;
+		
+	}
+	else {
+		if ((imp != nullptr) && (true)) {
+
+			delete imp;
+			imp = nullptr;
+		}
 	}
 }
 
@@ -26,6 +48,16 @@ void ClientProtocol::connectToHost()
 	if (imp != nullptr) {
 		QTcpSocket::connectToHost(imp->getHostAddress(), imp->getHostPort());
 	}
+}
+
+void ClientProtocol::setWidgetTitle(const QString& title)
+{
+	imp->setWidgetTitle(title);
+}
+
+void ClientProtocol::showWidget()
+{
+	imp->showWidget();
 }
 
 void ClientProtocol::slotOnClickedSendMessage()
@@ -84,5 +116,38 @@ void ClientProtocol::slotStateChanged(QAbstractSocket::SocketState socketState)
 			break;
 		}
 		imp->setConnectState(viewState);
+	}
+}
+
+
+
+void ClientProtocol::notificationOnClickedLinkButoon(QPushButton* linkBtn)
+{
+	if (imp != nullptr) {
+		//QString viewState;
+		auto address = imp->getHostAddress();
+		auto port = imp->getHostPort();
+		switch (this->state())
+		{
+		case QAbstractSocket::UnconnectedState:
+		case QAbstractSocket::ClosingState:
+			connectToHost();
+			linkBtn->setText(QString::fromLocal8Bit("断开连接"));
+
+			
+			break;
+		
+		case QAbstractSocket::ConnectingState:
+		case QAbstractSocket::ConnectedState:
+			disconnectFromHost();
+			//disconnect();
+			linkBtn->setText(QString::fromLocal8Bit("连接"));
+		
+		
+		default:
+			
+			break;
+		}
+		
 	}
 }

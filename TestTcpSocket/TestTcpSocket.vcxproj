@@ -84,8 +84,11 @@
     <ClCompile Include="ClientIMPProtocol.cpp" />
     <ClCompile Include="ClientIMPOnWidget.cpp" />
     <ClCompile Include="ClientProtocol.cpp" />
+    <ClCompile Include="ClientsVectorProtocol.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NotificationProtocol.cpp" />
+    <ClCompile Include="ServerProtocol.cpp" />
+    <ClCompile Include="SetHostInfoDiaog.cpp" />
     <ClCompile Include="TestTcpSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -93,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="ClientIMPOnWidget.ui" />
+    <QtUic Include="SetHostInfoDiaog.ui" />
     <QtUic Include="TestTcpSocket.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -107,7 +111,10 @@
   <ItemGroup>
     <ClInclude Include="ClientIMPOnStd.h" />
     <ClInclude Include="ClientIMPProtocol.h" />
+    <ClInclude Include="ClientsVectorProtocol.h" />
     <ClInclude Include="NotificationProtocol.h" />
+    <QtMoc Include="ServerProtocol.h" />
+    <QtMoc Include="SetHostInfoDiaog.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

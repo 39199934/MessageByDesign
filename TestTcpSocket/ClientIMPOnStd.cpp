@@ -26,3 +26,7 @@ void ClientIMPOnStd::showWidget(const QString& title )
 {
 	cout << "show widget,title = " << title.toStdString() << endl;
 }
+
+void ClientIMPOnStd::setWidgetTitle(const QString& title )
+{
+}

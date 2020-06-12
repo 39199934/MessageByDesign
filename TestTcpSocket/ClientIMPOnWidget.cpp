@@ -7,15 +7,39 @@ ClientIMPOnWidget::ClientIMPOnWidget(QWidget *parent)
 	ui.setupUi(this);
 	
 	connect(ui.cBtnSend, &QPushButton::clicked, this, &ClientIMPOnWidget::onClickedBtnSend);
+	connect(ui.cBtnLink, &QPushButton::clicked, this, &ClientIMPOnWidget::onClickedBtnLink);
+	connect(ui.cBtnSetHost, &QPushButton::clicked, this, &ClientIMPOnWidget::onClickedSetHost);
 }
 
 ClientIMPOnWidget::~ClientIMPOnWidget()
 {
+	this->close();
 }
 
 void ClientIMPOnWidget::showWidget(const QString& title)
 {
 	this->show();
+	this->setWindowTitle(title);
+}
+
+void ClientIMPOnWidget::onClickedBtnLink()
+{
+	if (notification != nullptr) {
+		notification->notificationOnClickedLinkButoon(ui.cBtnLink);
+	}
+}
+
+void ClientIMPOnWidget::onClickedSetHost()
+{
+	SetHostInfoDiaog dia(hostAddress, hostPort, this);
+	dia.exec();
+	hostAddress = dia.address;
+	hostPort = dia.port;
+	
+}
+
+void ClientIMPOnWidget::setWidgetTitle(const QString& title )
+{
 	this->setWindowTitle(title);
 }
 

@@ -5,19 +5,26 @@
 #include "ClientIMPProtocol.h"
 #include "ClientIMPOnWidget.h"
 #include "NotificationProtocol.h"
+#include <QWidget>
+#include <QVBoxLayout>
 
 class ClientProtocol : public QTcpSocket,public NotificationProtocol
 {
 	Q_OBJECT
 
 public:
-	ClientProtocol(ClientIMPProtocol* new_imp,QObject *parent= nullptr);
-	ClientProtocol(qintptr  socket_des, ClientIMPProtocol* new_imp, QObject* parent = nullptr);
+	ClientProtocol(QWidget* parent_widget);
+	ClientProtocol(qintptr  socket_des, QWidget* parent_widget);
 	virtual ~ClientProtocol();
 	void connectToHost();
+	//ClientIMPOnWidget* get
+	void setWidgetTitle(const QString& title);
+	void showWidget();
 
 private:
 	ClientIMPProtocol* imp = nullptr;
+	ClientIMPOnWidget* wimp = nullptr;
+	QWidget* parentWidget = nullptr;
 	void slotOnClickedSendMessage();
 
 
@@ -27,5 +34,10 @@ private:
 protected slots:
 	virtual void slotReadyRead();
 	virtual void slotStateChanged(QAbstractSocket::SocketState socketState);
+
+
+
+	// Í¨¹ý NotificationProtocol ¼Ì³Ð
+	virtual void notificationOnClickedLinkButoon(QPushButton* linkBtn) override;
 
 };

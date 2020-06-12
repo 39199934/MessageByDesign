@@ -46,6 +46,15 @@
     <ClCompile Include="ClientIMPOnStd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SetHostInfoDiaog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerProtocol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientsVectorProtocol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="TestTcpSocket.h">
@@ -57,12 +66,21 @@
     <QtMoc Include="ClientIMPOnWidget.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="SetHostInfoDiaog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ServerProtocol.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="TestTcpSocket.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ClientIMPOnWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="SetHostInfoDiaog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -79,6 +97,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ClientIMPOnStd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientsVectorProtocol.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
