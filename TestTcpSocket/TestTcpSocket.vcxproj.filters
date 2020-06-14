@@ -55,6 +55,9 @@
     <ClCompile Include="ClientsVectorProtocol.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ServerIMPWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="TestTcpSocket.h">
@@ -72,6 +75,9 @@
     <QtMoc Include="ServerProtocol.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ServerIMPWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="TestTcpSocket.ui">
@@ -81,6 +87,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="SetHostInfoDiaog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ServerIMPWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

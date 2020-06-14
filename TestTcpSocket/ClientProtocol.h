@@ -7,6 +7,7 @@
 #include "NotificationProtocol.h"
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QLayout>
 
 class ClientProtocol : public QTcpSocket,public NotificationProtocol
 {
@@ -19,7 +20,8 @@ public:
 	void connectToHost();
 	//ClientIMPOnWidget* get
 	void setWidgetTitle(const QString& title);
-	void showWidget();
+	void showWidget(const QString& title = "client window");
+	ClientIMPOnWidget* getWidgetImp();
 
 private:
 	ClientIMPProtocol* imp = nullptr;

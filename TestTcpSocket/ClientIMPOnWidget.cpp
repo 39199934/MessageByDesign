@@ -41,6 +41,7 @@ void ClientIMPOnWidget::onClickedSetHost()
 void ClientIMPOnWidget::setWidgetTitle(const QString& title )
 {
 	this->setWindowTitle(title);
+	this->update();
 }
 
 void ClientIMPOnWidget::onClickedBtnSend()

@@ -22,6 +22,7 @@ public:
 	void setNotification(NotificationProtocol* new_notification);
 	virtual void showWidget(const QString& title = QString::fromLocal8Bit("客户端窗口")) =0;
 	virtual void setWidgetTitle(const QString& title = QString::fromLocal8Bit("客户端窗口")) = 0;
+	//virtual void setStateContent
 	NotificationProtocol* getNotification();
 protected:
 	NotificationProtocol* notification;

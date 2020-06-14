@@ -1,20 +1,13 @@
 #include "ClientProtocol.h"
 
 ClientProtocol::ClientProtocol(QWidget* parent_widget)
-	: QTcpSocket(parent_widget),
+	: QTcpSocket(nullptr),
 	parentWidget(parent_widget)
 {
 	connect(this, &QTcpSocket::readyRead, this, &ClientProtocol::slotReadyRead);
 	connect(this, &QTcpSocket::stateChanged, this, &ClientProtocol::slotStateChanged);
 	wimp = new ClientIMPOnWidget();
-	auto layout = parentWidget->layout();// new QVBoxLayout(parentWidget);//铺满布局
 	
-	
-	wimp->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);//铺满布局
-
-	layout->addWidget(wimp);
-
-	parentWidget->setLayout(layout);// ->horizontalLayoutChoose->addWidget(widget);
 	imp = wimp;
 	imp->setNotification(this);
 }
@@ -30,8 +23,10 @@ ClientProtocol::~ClientProtocol()
 	if (parentWidget != nullptr) {
 		auto layout = parentWidget->layout();
 		layout->removeWidget(wimp);
+		wimp->deleteLater();
+
 		//delete wimp;
-		wimp = nullptr;
+		//wimp = nullptr;
 		
 	}
 	else {
@@ -55,9 +50,27 @@ void ClientProtocol::setWidgetTitle(const QString& title)
 	imp->setWidgetTitle(title);
 }
 
-void ClientProtocol::showWidget()
+void ClientProtocol::showWidget(const QString& title)
 {
-	imp->showWidget();
+	if (parentWidget != nullptr)
+	{
+		auto layout = parentWidget->layout();// new QVBoxLayout(parentWidget);//铺满布局
+
+
+		wimp->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);//铺满布局
+
+		auto oldW = layout->widget();
+		layout->removeWidget(oldW);
+		layout->addWidget(wimp);
+
+		parentWidget->setLayout(layout);// ->horizontalLayoutChoose->addWidget(widget);
+	}
+	imp->showWidget(title);
+}
+
+ClientIMPOnWidget* ClientProtocol::getWidgetImp()
+{
+	return wimp;
 }
 
 void ClientProtocol::slotOnClickedSendMessage()

@@ -6,7 +6,7 @@ TestTcpSocket::TestTcpSocket(QWidget *parent)
 {
 	ui.setupUi(this);
 	
-	client = new ClientProtocol(this);
+	client = new ClientProtocol(nullptr);
 	client->connectToHost();
 	client->showWidget();
 	
@@ -18,11 +18,12 @@ TestTcpSocket::~TestTcpSocket()
 {
 	
 	if (client != nullptr) {
-		delete client;
-		client = nullptr;
+		client->deleteLater();
+		//delete client;
+		//client = nullptr;
 	}
 	if (server != nullptr) {
-		delete server;
+		 server->deleteLater();
 		server = nullptr;
 	}
 }
